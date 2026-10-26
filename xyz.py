@@ -1,26 +1,28 @@
-#calculator
+# Simple command-line calculator
 
-a = float(input("value of a: "))
-b = float(input("value of b: "))
-
-op = input("choose operation (+,-,*,/): ")
-
-if op == "+":
-    result = a + b
-elif op == "-":
-    result = a - b
-elif op == "*":
-    result = a * b
-elif op == "/":
-    if b == 0:
-        print("infinity")
-        result = None
-    else:
-        result = a / b
+try:
+    a = float(input("Value of a: "))
+    b = float(input("Value of b: "))
+except ValueError:
+    print("Please enter valid numbers.")
 else:
-    print("error")
-    result = None
+    op = input("Choose operation (+, -, *, /): ").strip()
 
-if result is not None:
-    print("Result:", result)
+    if op == "+":
+        result = a + b
+    elif op == "-":
+        result = a - b
+    elif op == "*":
+        result = a * b
+    elif op == "/":
+        if b == 0:
+            result = None
+            print("Cannot divide by zero.")
+        else:
+            result = a / b
+    else:
+        result = None
+        print("Unsupported operation. Choose +, -, *, or /.")
 
+    if result is not None:
+        print("Result:", result)
