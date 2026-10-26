@@ -1,31 +1,15 @@
-#calculator
+# Voting eligibility checker
 
-# a = float(input("value of a: "))
-# b = float(input("value of b: "))
+age_text = input("Enter your age: ")
 
-# op = input("choose operation (+,-,*,/): ")
-
-# if op == "+":
-#     result = a + b
-# elif op == "-":
-#     result = a - b
-# elif op == "*":
-#     result = a * b
-# elif op == "/":
-#     if b == 0:
-#         print("infinity")
-#         result = None
-#     else:
-#         result = a / b
-# else:
-#     print("error")
-#     result = None
-
-# if result is not None:
-#     print("Result:", result)
-
-age = print(int(input("enter your age: ")))
-if age >= 18:
-    print("you are eligible for vote")
-elif age<18:
-    print("you are not eligible for vote")
+try:
+    age = int(age_text)
+except ValueError:
+    print("Please enter a whole number for your age.")
+else:
+    if age < 0:
+        print("Age cannot be negative.")
+    elif age >= 18:
+        print("You are eligible to vote.")
+    else:
+        print("You are not eligible to vote yet.")
